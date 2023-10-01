@@ -1,5 +1,6 @@
 import Icons from "../Icons";
 import { styled } from "styled-components";
+import { useState } from "react";
 
 const DescriptionContainer = styled.div`
   display: flex;
@@ -63,12 +64,15 @@ Card.defaultProps = {
 
 type CardProps = {
   img: number;
+  handleimageClick?: (id: string ) => void;
+  key: string;
 };
+
 
 function Card(props: CardProps) {
   return (
-    <StyledCard>
-      <img className='photo' src={`./imagens/galeria/foto-${props.img}.png`} />
+    <StyledCard onClick={handleImageClick(props.key)}>
+      <img  className='photo' src={`./imagens/galeria/foto-${props.img}.png`} />
       <StyledInfos>
         <Styledh4>Nome da foto</Styledh4>
         <DescriptionContainer>
@@ -80,11 +84,24 @@ function Card(props: CardProps) {
   );
 }
 
-function Gallery() {
+const [isModalOpen, setIsModalOpen] = useState(false);
+const [imageId, setImageId] = useState("");
+
+const handleImageClick = (id: string) => {
+  setIsModalOpen(true);
+  setImageId(id);
+}
+
+function Gallery({ handleImageClick }: { handleImageClick: (id: string) => void }) {
+
   return (
     <StyledGallery>
-     {Array.from({ length: 10 }, (_, i) => (
-        <Card img={i + 1} />
+      {Array.from({ length: 10 }, (_, i) => (
+        <Card 
+        img={i + 1} 
+        key={i.toString()}
+
+        />
       ))}
     </StyledGallery>
   );

@@ -8,6 +8,7 @@ import SearchTag from "./components/SearchTag";
 import Gallery from "./components/Gallery";
 import AsideRight from "./components/AsideRight";
 import Footer from "./components/Footer";
+import Modal from "./components/Modal";
 
 const StyledHero = styled.div`
   background-image: url(${banner});
@@ -37,11 +38,11 @@ const Flex = styled.div`
 const ControlDivLeft = styled.div`
   width:12%;`
 
-
 function App() {
   return (
     <BackgroundGradient>
       <GlobalStyles />
+      {/* <Modal /> */}
       <Header />
       <Flex>
         <AsideLeft />
@@ -56,7 +57,7 @@ function App() {
         <SearchTag />
       </Flex>
       <Flex>
-        <Gallery />
+        <Gallery handleImageClick={handleImageClick}/>
         <AsideRight />
       </Flex>
       <Footer />
