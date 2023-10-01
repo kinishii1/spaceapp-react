@@ -20,7 +20,7 @@ const AsideRightBtn = styled.button`
   width: 100%;
   height: 50px;
   background-color: transparent;
-  border: #C98CF1 1px solid;
+  border: #C98CF1 2px solid;
   border-radius: 10px;
   color: #fff;
   font-size: 1rem;

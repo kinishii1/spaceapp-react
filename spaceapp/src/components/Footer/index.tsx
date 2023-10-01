@@ -1,12 +1,5 @@
-import React from "react";
 import { styled } from "styled-components";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
-
-const StyledIcons = styled.div`
-  display: flex;
-  gap: 1rem;
-  font-size: 1.5rem;
-`;
+import IconsFooter from "../IconsFooter";
 
 const StyledFooter = styled.footer`
   background-color:#04244F;;
@@ -23,20 +16,10 @@ const StyledFooter = styled.footer`
   }
 `;
 
-function Icons() {
-  return (
-    <StyledIcons>
-      <FaFacebook />
-      <FaTwitter />
-      <FaInstagram />
-    </StyledIcons>
-  );
-}
-
 function Footer() {
   return (
     <StyledFooter>
-      <Icons />
+      <IconsFooter />
       <p>developed by Kin Ishii</p>
     </StyledFooter>
   );
