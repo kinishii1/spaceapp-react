@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import GlobalStyles from "./components/GlobalStyles";
+import { styled } from "styled-components";
+import BackgroundGradient from "./components/BackgroundGradient";
+import Header from "./components/Header";
+import AsideLeft from "./components/AsideLeft";
+import banner from "./assets/banner.png";
+import SearchTag from "./components/SearchTag";
+import Gallery from "./components/Gallery";
+import AsideRight from "./components/AsideRight";
+import Footer from "./components/Footer";
+
+const StyledHero = styled.div`
+  background-image: url(${banner});
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 328px;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+`;
+
+const StyledHeroTitle = styled.h1`
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 400;
+  width: 300px;
+`;
+
+const Flex = styled.div`
+  display: flex;
+  padding: 0 2rem;
+  gap: 2rem;
+`;
+
+const ControlDivLeft = styled.div`
+  width:12%;`
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BackgroundGradient>
+      <GlobalStyles />
+      <Header />
+      <Flex>
+        <AsideLeft />
+        <StyledHero>
+          <StyledHeroTitle>
+            A galeria mais completa de fotos do espaço!
+          </StyledHeroTitle>
+        </StyledHero>
+      </Flex>
+      <Flex>
+        <ControlDivLeft />
+        <SearchTag />
+      </Flex>
+      <Flex>
+        <Gallery />
+        <AsideRight />
+      </Flex>
+      <Footer />
+    </BackgroundGradient>
+  );
 }
 
-export default App
+export default App;
